@@ -1,0 +1,1560 @@
+{
+	"info": {
+		"_postman_id": "8440bd43-5479-442e-a8b3-821b1e871d67",
+		"name": "BillEasy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33633794"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"rajyadav@gmail.com\",\n    \"password\": \"Rajyadav@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Priya\",\n    \"lastName\": \"Sharma\",\n    \"email\": \"priyasharma@gmail.com\",\n    \"password\": \"PriyaSharma@456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"rajyada@gmail.com\",\n    \"password\": \"Rajyadav@789\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Raj\",\n    \"lastName\": \"Yadav\",\n    \"email\": \"rajyadav@gmail.com\",\n    \"password\": \"Rajyadav@123\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n    \"firstName\": \"Priya\",\n    \"lastName\": \"Sharma\",\n    \"email\": \"priyasharma@gmail.com\",\n    \"password\": \"PriyaPass@456\",\n    \"role\": \"user\"\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"107-VfGE2jJ14F1B6yjrqfi3DbyzZqM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 09:27:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 7,\n    \"firstName\": \"Priya\",\n    \"lastName\": \"Sharma\",\n    \"email\": \"priyasharma@gmail.com\",\n    \"password\": \"$2b$10$qIVLmRwmQlomuS93V6YEf.VNOWWz2Bm7uoqwqMHgZcq1X8BvPNGFS\",\n    \"role\": \"user\",\n    \"createdAt\": \"2025-05-22T03:57:17.817Z\",\n    \"updatedAt\": \"2025-05-22T03:57:17.817Z\",\n    \"deletedAt\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "All users list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/list?page=1&limit=15",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/list?page=1&limit=15",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1472"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5c0-lxowCzOwOIAh7gNmAcwxrD4Xs20\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 10:09:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 6,\n    \"users\": [\n        {\n            \"id\": 7,\n            \"firstName\": \"Priya\",\n            \"lastName\": \"Sharma\",\n            \"email\": \"priyasharma@gmail.com\",\n            \"password\": \"$2b$10$qIVLmRwmQlomuS93V6YEf.VNOWWz2Bm7uoqwqMHgZcq1X8BvPNGFS\",\n            \"role\": \"user\",\n            \"createdAt\": \"2025-05-22T03:57:17.817Z\",\n            \"updatedAt\": \"2025-05-22T03:57:17.817Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 6,\n            \"firstName\": \"Rahul\",\n            \"lastName\": \"Singh\",\n            \"email\": \"rahulyadav@gmail.com\",\n            \"password\": \"Rahul@654\",\n            \"role\": \"user\",\n            \"createdAt\": \"2025-05-22T03:53:25.634Z\",\n            \"updatedAt\": \"2025-05-22T03:53:25.634Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 5,\n            \"firstName\": \"Vikram\",\n            \"lastName\": \"Singh\",\n            \"email\": \"vikramsingh@gmail.com\",\n            \"password\": \"VikramPass@654\",\n            \"role\": \"user\",\n            \"createdAt\": \"2025-05-22T03:41:40.345Z\",\n            \"updatedAt\": \"2025-05-22T03:41:40.345Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"Sneha\",\n            \"lastName\": \"Patel\",\n            \"email\": \"snehapatel@gmail.com\",\n            \"password\": \"SnehaPass@321\",\n            \"role\": \"user\",\n            \"createdAt\": \"2025-05-22T03:41:22.641Z\",\n            \"updatedAt\": \"2025-05-22T03:41:22.641Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 3,\n            \"firstName\": \"Amit\",\n            \"lastName\": \"Kumar\",\n            \"email\": \"amitkumar@example.com\",\n            \"password\": \"$2b$10$tDiBbfjdYCZJ3dUEqvd0dO2t.PoWN13UXwUvqfzsO30OJYBc6R6Tu\",\n            \"role\": \"user\",\n            \"createdAt\": \"2025-05-22T03:40:46.026Z\",\n            \"updatedAt\": \"2025-05-22T04:37:24.572Z\",\n            \"deletedAt\": \"2025-05-22T04:37:24.572Z\"\n        },\n        {\n            \"id\": 1,\n            \"firstName\": \"raj\",\n            \"lastName\": \"Kumar\",\n            \"email\": \"rajyadav@gmail.com\",\n            \"password\": \"$2b$10$L1GQwO6vQ0BUWnLYmyD9b.p/L1D0FRMNp1/sWoxVPAnqbXZWLzT/G\",\n            \"role\": \"admin\",\n            \"createdAt\": \"2025-05-22T03:17:45.430Z\",\n            \"updatedAt\": \"2025-05-22T04:38:49.974Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "find userby userId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{userId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"raj\",\n    \"lastName\": \"Kumar\",\n    \"email\": \"rajyadav@gmail.com\",\n    \"password\": \"Raj@789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/update/{{userId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"update",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Amit\",\n    \"lastName\": \"Kumar\",\n    \"email\": \"amitkumar@gmail.com\",\n    \"password\": \"RajYdv@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/update/{{userId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"update",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "260"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"104-AwQw2Qq8z15470mUfAd/uNwHEqw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 09:31:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"firstName\": \"Amit\",\n    \"lastName\": \"Kumar\",\n    \"email\": \"amitkumar@gmail.com\",\n    \"password\": \"$2b$10$j01jUUUF3.v812ru5xpD/e.T6TLcRVX.HrHWHNIq6rG5AcvHHTNFO\",\n    \"role\": \"admin\",\n    \"createdAt\": \"2025-05-22T03:17:45.430Z\",\n    \"updatedAt\": \"2025-05-22T04:01:14.721Z\",\n    \"deletedAt\": null\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"raj\",\n    \"lastName\": \"Kumar\",\n    \"email\": \"rajyadav@gmail.com\",\n    \"password\": \"Raj@789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/update/{{userId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"update",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "258"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"102-0AzgHiImyobHVgQje7hK6FmpLDo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 10:08:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"firstName\": \"raj\",\n    \"lastName\": \"Kumar\",\n    \"email\": \"rajyadav@gmail.com\",\n    \"password\": \"$2b$10$L1GQwO6vQ0BUWnLYmyD9b.p/L1D0FRMNp1/sWoxVPAnqbXZWLzT/G\",\n    \"role\": \"admin\",\n    \"createdAt\": \"2025-05-22T03:17:45.430Z\",\n    \"updatedAt\": \"2025-05-22T04:38:49.974Z\",\n    \"deletedAt\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/remove/{{userId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"remove",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/remove/{{userId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"remove",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-Ypk8kvwYQYAGSK+ytp1bdaxYhDk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 10:04:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User with ID 3 has been successfully deleted\"\n}"
+						},
+						{
+							"name": "conflict",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/remove/{{userId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"remove",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-wf2nnes2ed5YgvKK5cb9Rv8vY6w\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 10:07:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User with ID 3 already deleted\",\n    \"error\": \"Conflict\",\n    \"statusCode\": 409\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "add book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Atomic Habits\",\n    \"author\": \"James Clear\",\n    \"genre\": \"Self-help\",\n    \"description\": \"Offers a proven framework for improving habits and achieving goals through small changes.\",\n    \"publishedYear\": 2018\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt and David Thomas\",\n  \"genre\": \"Software Engineering\",\n  \"description\": \"A practical guide to programming that covers coding practices, architecture, testing, and personal development.\",\n  \"publishedYear\": 1999\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"155-+FDq6r7mYWVSoGKTA5kOpoy7zjM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 11:05:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"The Pragmatic Programmer\",\n    \"author\": \"Andrew Hunt and David Thomas\",\n    \"genre\": \"Software Engineering\",\n    \"description\": \"A practical guide to programming that covers coding practices, architecture, testing, and personal development.\",\n    \"publishedYear\": 1999,\n    \"createdAt\": \"2025-05-22T05:35:47.196Z\",\n    \"updatedAt\": \"2025-05-22T05:35:47.196Z\"\n}"
+						},
+						{
+							"name": "conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt and David Thomas\",\n  \"genre\": \"Software Engineering\",\n  \"description\": \"A practical guide to programming that covers coding practices, architecture, testing, and personal development.\",\n  \"publishedYear\": 1999\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-snQtXNPRNDYKvmUSAD0DCrY015c\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 11:07:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Book with this title and author already exists\",\n    \"error\": \"Conflict\",\n    \"statusCode\": 409\n}"
+						}
+					]
+				},
+				{
+					"name": "books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt and David Thomas\",\n  \"genre\": \"Software Engineering\",\n  \"description\": \"A practical guide to programming that covers coding practices, architecture, testing, and personal development.\",\n  \"publishedYear\": 1999\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/books?page=1&limit=5&author=Andrew&genre=Engineering",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "author",
+									"value": "Andrew"
+								},
+								{
+									"key": "genre",
+									"value": "Engineering"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt and David Thomas\",\n  \"genre\": \"Software Engineering\",\n  \"description\": \"A practical guide to programming that covers coding practices, architecture, testing, and personal development.\",\n  \"publishedYear\": 1999\n}\n"
+								},
+								"url": {
+									"raw": "{{base_url}}/books?page=1&limit=5&author=Andrew&genre=Engineering",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"books"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "author",
+											"value": "Andrew"
+										},
+										{
+											"key": "genre",
+											"value": "Engineering"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "363"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16b-EBBs9z3tS3q4nMDveZ5d1f9uZMA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 11:43:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 1,\n    \"books\": [\n        {\n            \"id\": 1,\n            \"title\": \"The Pragmatic Programmer\",\n            \"author\": \"Andrew Hunt and David Thomas\",\n            \"genre\": \"Software Engineering\",\n            \"description\": \"A practical guide to programming that covers coding practices, architecture, testing, and personal development.\",\n            \"publishedYear\": 1999,\n            \"createdAt\": \"2025-05-22T05:37:18.871Z\",\n            \"updatedAt\": \"2025-05-22T05:37:18.871Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "book details",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/books/{{bookId}}?page=1&limit=15",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"books",
+								"{{bookId}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "15"
+								},
+								{
+									"key": "genre",
+									"value": "Engineering",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/books/{{bookId}}?page=1&limit=2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"books",
+										"{{bookId}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										},
+										{
+											"key": "genre",
+											"value": "Engineering",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "596"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"254-TPrJlQKQYmGv3a/jom+G/gjHo7s\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 13:20:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"book\": {\n        \"id\": 2,\n        \"title\": \"Clean Code\",\n        \"author\": \"Robert C. Martin\",\n        \"genre\": \"Software Engineering\",\n        \"description\": \"A handbook of agile software craftsmanship that teaches how to write clean, maintainable code.\",\n        \"publishedYear\": 2008,\n        \"createdAt\": \"2025-05-22T07:02:09.855Z\",\n        \"updatedAt\": \"2025-05-22T07:02:09.855Z\"\n    },\n    \"averageRating\": 3.5,\n    \"reviews\": [\n        {\n            \"id\": 5,\n            \"rating\": 2,\n            \"comment\": \"not a excellent\",\n            \"createdAt\": \"2025-05-22T07:32:39.504Z\"\n        },\n        {\n            \"id\": 4,\n            \"rating\": 3,\n            \"comment\": \"An excellent and timeless guide for software engineers!\",\n            \"createdAt\": \"2025-05-22T07:32:20.109Z\"\n        }\n    ],\n    \"pagination\": {\n        \"currentPage\": 1,\n        \"perPage\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "post a review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 2,\n  \"comment\": \"not a excellent\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/books/{{bookId}}/reviews",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"books",
+								"{{bookId}}",
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "already submitted",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": 2,\n  \"comment\": \"not a excellent\",\n  \"userId\": 4,\n  \"bookId\": 2\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/books/{{bookId}}/reviews",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"books",
+										"{{bookId}}",
+										"reviews"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63-XeUKCWem2i6RdJn8FG/AgGfkZfw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 13:21:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User has already submitted a review for this book\",\n    \"error\": \"Conflict\",\n    \"statusCode\": 409\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": 2,\n  \"comment\": \"not a excellent\",\n  \"userId\": 3,\n  \"bookId\": 1\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/books/{{bookId}}/reviews",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"books",
+										"{{bookId}}",
+										"reviews"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-U2+iA+H2C117kMp1uofH2Wlmnn4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 13:21:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"rating\": 2,\n    \"comment\": \"not a excellent\",\n    \"userId\": 3,\n    \"bookId\": 1,\n    \"createdAt\": \"2025-05-22T07:51:23.972Z\",\n    \"updatedAt\": \"2025-05-22T07:51:23.972Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "search book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt and David Thomas\",\n  \"genre\": \"Software Engineering\",\n  \"description\": \"A practical guide to programming that covers coding practices, architecture, testing, and personal development.\",\n  \"publishedYear\": 1999\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/books/search/author-title?query=JAMES",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"books",
+								"search",
+								"author-title"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "JAMES"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt and David Thomas\",\n  \"genre\": \"Software Engineering\",\n  \"description\": \"A practical guide to programming that covers coding practices, architecture, testing, and personal development.\",\n  \"publishedYear\": 1999\n}\n"
+								},
+								"url": {
+									"raw": "{{base_url}}/books/search/author-title?query=JAMES",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"books",
+										"search",
+										"author-title"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "JAMES"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "282"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11a-PnIZUcgzazeaOJjJpOTqgaPY57w\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 12:55:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Atomic Habits\",\n        \"author\": \"James Clear\",\n        \"genre\": \"Self-help\",\n        \"description\": \"Offers a proven framework for improving habits and achieving goals through small changes.\",\n        \"publishedYear\": 2018,\n        \"createdAt\": \"2025-05-22T07:01:20.768Z\",\n        \"updatedAt\": \"2025-05-22T07:01:20.768Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "update own review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 4,\n  \"comment\": \"Still an excellent book!\",\n  \"userId\": 1,\n  \"bookId\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/reviews/{{reviewId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reviews",
+								"{{reviewId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "not authorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": 4,\n  \"comment\": \"Still an excellent book!\",\n  \"userId\": 1,\n  \"bookId\": 2\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/reviews/{{reviewId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reviews",
+										"{{reviewId}}"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5f-fnsAvbvnKGn0YOvAoZZaTmja7OQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 12:41:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"You are not authorized to update this review\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": 4,\n  \"comment\": \"Still an excellent book for the reader!\",\n  \"userId\": 1,\n  \"bookId\": 2\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/reviews/{{reviewId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reviews",
+										"{{reviewId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "171"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ab-prcFB89+O//ng9hNAqQDDJYNiIM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 12:45:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"rating\": 4,\n    \"comment\": \"Still an excellent book for the reader!\",\n    \"userId\": 1,\n    \"bookId\": 2,\n    \"createdAt\": \"2025-05-22T07:14:52.347Z\",\n    \"updatedAt\": \"2025-05-22T07:15:24.219Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 4,\n  \"comment\": \"Still an excellent book!\",\n  \"userId\": 1,\n  \"bookId\": 2\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/reviews/{{reviewId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reviews",
+								"{{reviewId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": 4,\n  \"comment\": \"Still an excellent book!\",\n  \"userId\": 1,\n  \"bookId\": 2\n}\n"
+								},
+								"url": {
+									"raw": "{{base_url}}/reviews/{{reviewId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reviews",
+										"{{reviewId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-5iRVJgPMIKsrH6ntCRP+iwFDEYQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 12:43:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review with ID 1 deleted successfully\"\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": 4,\n  \"comment\": \"Still an excellent book!\",\n  \"userId\": 1,\n  \"bookId\": 2\n}\n"
+								},
+								"url": {
+									"raw": "{{base_url}}/reviews/{{reviewId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reviews",
+										"{{reviewId}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-mLLEiKysiO9MgBH4ryH/vy3h9oY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 May 2025 12:43:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review with ID 13 not found\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoicmFqeWFkYXZAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwic3ViIjoiMSIsImlhdCI6MTc0ODI1Mzk2MSwiZXhwIjoxNzQ4MjYyOTYxfQ.piygHKbZhfNjLGGyO3aGxp4q-vDTWKKCjftQwxC62mQnwwJK4_6jitjjNyxPRo_TArmz9PCE6dELS8yVgVCMfW9RazG4SWCjsaQZcccKWO2rPuKXjnPxLUI7ARl3WX8m4f7ikYoeJ3rWuyrZUZq8Iqw8WP9O6ejaIf9Q7oA8CbpWbhj5ze0n__x3Ql2vqqgaVwclThVADumi-GNDodBoP_BXLdSx8MIjW18Vz3k5m8SVDSEF-hZjvwinnU_o9BUvwZRE5J83elaAmQbYBNfpYZG6noO-T4M3Ifc09HHgb5qxA9TmtVnJ-bBhnQxpkZyh5t6iY76BFC9NvmgxqZ43Ng",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/v1",
+			"type": "default"
+		},
+		{
+			"key": "userId",
+			"value": "1",
+			"type": "default"
+		},
+		{
+			"key": "reviewId",
+			"value": "1",
+			"type": "default"
+		},
+		{
+			"key": "bookId",
+			"value": "1",
+			"type": "default"
+		}
+	]
+}
